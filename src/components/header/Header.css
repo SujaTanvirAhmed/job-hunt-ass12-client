@@ -1,0 +1,91 @@
+/* header {
+    background: url("./header-image.jpg");
+    background-repeat: no-repeat;
+    background-size: conver;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+} */
+.logo h2 {
+    text-shadow: 5px 5px 10px red,
+    -5px -5px 10px green,
+    5px -5px 10px blue,
+    -5px 5px 10px magenta;
+}
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    margin-top: -4px;
+}
+.ribbon {
+    position: relative;
+    display: flex;
+    padding: 20px 0;
+    
+}
+.ribbon::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #eee;
+}
+nav {
+    margin-left: auto;
+}
+ul {
+    list-style: none;
+    display: flex;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    /* background-color: rgba(0,0,0,0.1); */
+    border-radius: 5px;
+}
+nav a {
+    color: #fff;
+    font-weight: bold;
+    transition: ease-in .5s;
+    text-shadow: 3px 3px 5px black,
+    -3px -3px 5px black,
+    -3px 3px 5px black,
+    3px -3px 5px black;
+    font-size: 18px;
+    transition: ease-in .3s;
+}
+nav a:hover {
+    /* background-color: #fff; */
+    color: skyblue;
+}
+.login {
+    margin-left: auto;
+}
+.nav-login-btn,
+.nav-logout-btn {
+    background-color: #002f69;
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: ease-in 0.3s;
+}
+.nav-login-btn:hover,
+.nav-logout-btn:hover {
+    box-shadow: -3px 3px 5px maroon;
+}
+.user-info {
+    position: absolute;
+    right: 0;
+    bottom: 14px;
+    font-size: 13px;
+    font-family: tahoma;
+}
+.user-info span {
+    font-style: italic;
+    font-weight: bold;
+}

@@ -1,6 +1,3 @@
-import "./About.css";
-// import AboutPic from "./turkey.jpg";
-
 export const About = () => {
     return (
         <div className="about">

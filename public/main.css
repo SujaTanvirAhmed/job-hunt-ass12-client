@@ -1,3 +1,130 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+}
+.App {
+    text-align: center;
+}
+button {
+    cursor: pointer;
+}
+.container {
+    width: 1250px; 
+    margin: 0 auto;
+}
+.dashboard-body {
+    display: flex;
+}
+.dashboard-nav {
+    background-color: #f6f6f6;
+    width: 200px;
+    height: 80vh;
+}
+.dashboard-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.dashboard-nav li {
+    margin-left: 0;
+    width: 100%;
+}
+.dashboard-nav button {
+    width: 100%;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: left;
+    padding: 0 10px;
+    cursor: pointer;
+}
+.dashboard-main {
+    background-color: #f7f3ec;
+    width: 1050px;
+    padding: 25px 15px;
+}
+.banner-sec {
+    position: relative;
+    background: url("./imgs/banner-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.cta-btn {
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    /* margin: 420px auto; */
+    position: relative;
+    top: 50%;
+    width: 280px;
+    border: 1px solid gray;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    text-shadow: 3px 3px 3px black;
+    font-weight: bold;
+    transition: ease-in 0.3s;
+}
+.cta-btn:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* All Products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.product-card {
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 10px;
+}
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+.product-card h3 {
+    margin: 8px 0;
+}
+.product-card .price-tag {
+    margin-top: 10px;
+    color: white;
+    text-shadow: 2px 2px 7px black, 
+    -2px -2px 7px black;
+}
+.product-card button {
+    padding: 7px 12px;
+    margin: 15px 0 10px;
+}
+
+/* About page */
+.about {
+    padding: 50px 0;
+}
+.page-title {
+    margin-bottom: 20px;
+}
+.about .main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.about .main img {
+    width: 450px;
+    height: auto;
+}
+.about p {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Contact page */
 .contact {
     background: url("https://i.ibb.co/zP3NQQx/contact-bg.jpg");
     background-repeat: no-repeat;
@@ -5,6 +132,13 @@
     background-position: center;
     height: 600px;
     /* margin-top: 150px; */
+}
+.err-msg {
+    background-color: rgba(255,255,0,0.8);
+    color: rgb(216, 17, 17);
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-weight: bold;
 }
 .contact .container {
     height: 100%;;

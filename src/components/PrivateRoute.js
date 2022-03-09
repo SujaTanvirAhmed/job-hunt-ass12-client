@@ -1,10 +1,12 @@
 import { Navigate } from 'react-router-dom';
 
-export const PrivateRoute = ({ Component }) => {
+export const PrivateRoute = ({ authenticating, userEmail, children }) => {
 
-    const user = "job-hunt-ass12-user";
-    const loggedYes = "LOGGED_IN";
-    const isAuthenticated = () => localStorage.getItem(user) === loggedYes;
-
-    return isAuthenticated() ? <Component /> : <Navigate to="/contact" />
+    if (authenticating) {
+        return <h1>Loading...</h1>;
+    }
+    if (userEmail === "") {
+        return <Navigate to="/contact" replace />;
+    }
+    return children;
 }

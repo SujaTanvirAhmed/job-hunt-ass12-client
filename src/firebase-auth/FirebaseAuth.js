@@ -110,3 +110,6 @@ export const firebaseAuthState = (callbackFnc) => {
 export const logOut = () => {
     return signOut(auth);
 }
+
+export const baseUrl = "http://localhost:5000";
+// export const baseUrl = "https://whispering-lowlands-37187.herokuapp.com";

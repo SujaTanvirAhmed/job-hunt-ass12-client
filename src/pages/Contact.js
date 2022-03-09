@@ -1,23 +1,39 @@
 /* Existing users = [
 { email: "test@test.com", pass: "test123" },
-{ email: "admin@admin.com", pass: "admin123"}
+{ email: "admin@admin.com", pass: "123456"}
 ] */
 import * as React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
     loginUserWithGoogle,
     makeUserWithEmailAndPass,
     loginUserWithEmailAndPass,
-} from "../../firebase-auth/FirebaseAuth";
-import "./Contact.css";
+} from "../firebase-auth/FirebaseAuth";
 
 export const Contact = () => {
+
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    const productId = state?.productId || "";
+    const destinationUrl = state?.destUrl || "/";
+    console.log(productId);
+    console.log(destinationUrl);
+
     const [isLoginForm, setIsLoginForm] = React.useState(true);
+    const [errMsg, setErrMsg] = React.useState("");
+
     const emailRef = React.useRef("");
     const passRef = React.useRef("");
     const passConfirmRef = React.useRef("");
 
     const handleLoginOrRegister = (e) => {
         e.preventDefault();
+
+        const wrongMailPass = "Wrong email or password!";
+        const provideAllInfo = "You must provide all information!";
+        const passwordMismatch = "Password mismatched!";
+        const passwordLength = "Password must be at least 6 characters long!";
+        const regFail = "Registration fails!";
 
         if (isLoginForm) {
             // User wants to login
@@ -29,9 +45,12 @@ export const Contact = () => {
                     console.log(user.email);
                     emailRef.current.value = "";
                     passRef.current.value = "";
+                    navigate(destinationUrl, { replace: true, state: { productId: productId } });
+                    // navigate("/purchase");
                 })
                 .catch((err) => {
                     console.log(err.message);
+                    setErrMsg(wrongMailPass);
                 });
         }
         else {
@@ -42,17 +61,17 @@ export const Contact = () => {
             if (userMail.length === 0 ||
                 userPass.length === 0 ||
                 userConfirmPass.length === 0) {
-                console.log("You must provide all information");
+                setErrMsg(provideAllInfo);
                 return;
             }
             else {
                 if (userPass !== userConfirmPass) {
-                    console.log("Password mismatched");
+                    setErrMsg(passwordMismatch);
                     return;
                 }
                 else {
                     if (userPass.length < 6) {
-                        console.log("Password must be at least 6 character long");
+                        setErrMsg(passwordLength);
                     }
                     else {
                         makeUserWithEmailAndPass(userMail, userPass)
@@ -65,6 +84,7 @@ export const Contact = () => {
                             })
                             .catch((err) => {
                                 console.log(err.message);
+                                setErrMsg(regFail);
                             });
                     }
                 }
@@ -78,22 +98,13 @@ export const Contact = () => {
 
     const handleGoogleSignIn = () => { }
 
-    const handleRegisterWithEmailAndPass = () => {
-        makeUserWithEmailAndPass("test@test.com", "test123")
-            .then((userCredential) => {
-                console.log(userCredential);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }
-
     return (
         <div className="contact">
             <div className="container">
                 <div className="contact-group">
                     <form onSubmit={handleLoginOrRegister}>
                         <h3 className="form-title">{isLoginForm ? "Login" : "Register"}</h3>
+                        {errMsg !== "" && <p className="err-msg">{errMsg}</p>}
                         <div className="form-items">
                             <input
                                 type="email"

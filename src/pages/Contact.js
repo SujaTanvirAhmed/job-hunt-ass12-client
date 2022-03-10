@@ -16,8 +16,8 @@ export const Contact = () => {
     const { state } = useLocation();
     const productId = state?.productId || "";
     const destinationUrl = state?.destUrl || "/";
-    console.log(productId);
-    console.log(destinationUrl);
+    // console.log(productId);
+    // console.log(destinationUrl);
 
     const [isLoginForm, setIsLoginForm] = React.useState(true);
     const [errMsg, setErrMsg] = React.useState("");
@@ -45,8 +45,10 @@ export const Contact = () => {
                     console.log(user.email);
                     emailRef.current.value = "";
                     passRef.current.value = "";
-                    navigate(destinationUrl, { replace: true, state: { productId: productId } });
-                    // navigate("/purchase");
+                    // navigate(destinationUrl, { replace: true, state: { productId: productId } });
+                    // console.log(productId);
+                    // console.log(destinationUrl);
+                    // navigate(destinationUrl);
                 })
                 .catch((err) => {
                     console.log(err.message);

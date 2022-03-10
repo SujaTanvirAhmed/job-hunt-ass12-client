@@ -3,6 +3,7 @@ import axios from "axios";
 import { baseUrl } from "../firebase-auth/FirebaseAuth";
 import { Banner } from "../components/Banner";
 import { Product } from "../components/Product";
+import { Reviews } from "../components/Reviews";
 
 export const Home = ({ userEmail }) => {
 
@@ -22,20 +23,24 @@ export const Home = ({ userEmail }) => {
     return (
         <>
             <Banner />
-            <h1>Home</h1>
             <div className="container">
+                <h1 className="section-title"
+                    style={{ marginTop: "50px", marginBottom: "-36px" }}
+                >Our featured products</h1>
                 <div className="products">
+
                     {products.map(
                         (product) => <Product
-                            key={product.id}
+                            key={product._id}
                             userEmail={userEmail}
-                            productId={product.id}
+                            productId={product._id}
                             img={product.img}
                             title={product.title}
                             desc={product.desc}
                             price={product.price} />
                     )}
                 </div>
+                <Reviews />
             </div>
         </>
     );

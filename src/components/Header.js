@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 // import { logOut } from "../../firebase-auth/FirebaseAuth";
-import "./Header.css";
 
 export const Header = ({ userEmail, setUserEmail, handleLogOut }) => {
 

@@ -5,20 +5,29 @@
 
 // import modules
 import * as React from "react";
-import { firebaseAuthState, logOut } from "./firebase-auth/FirebaseAuth";
+import axios from "axios";
+import { firebaseAuthState, logOut, baseUrl } from "./firebase-auth/FirebaseAuth";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { PrivateRoute } from "./components/PrivateRoute";
-import { AllProducts } from "./pages/AllProducts";
+import { Review } from "./components/Review";
 
+import { AllProducts } from "./pages/AllProducts";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Dashboard } from "./pages/Dashboard";
+// import { DashboardReview } from "./pages/DashboardReview";
 import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Purchase } from "./pages/Purchase";
+import { MyOrders } from "./components/MyOrders";
+import { Pay } from "./components/Pay";
+import { ManageOrders } from "./components/ManageOrders";
+import { ManageProducts } from "./components/ManageProducts";
+import { AddProduct } from "./components/AddProduct";
+import { MakeAdmin } from "./components/MakeAdmin";
 
 export const App = () => {
 
@@ -31,7 +40,13 @@ export const App = () => {
       if (user) {
         setUserEmail(user.email);
         setAuthenticating(false);
-        setUserRole("admin");
+        axios.get(`${baseUrl}/users/?email=${user.email}`)
+          .then((response) => {
+            setUserRole(response.data);
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
       }
       else {
         setUserEmail("");
@@ -98,6 +113,7 @@ export const App = () => {
             userEmail === "" ? <Contact /> : <Navigate to="/" />
           } />
           <Route path="/purchase" element={<Purchase userEmail={userEmail} />} />
+
           <Route path="/dashboard" element={
             <PrivateRoute
               authenticating={authenticating}
@@ -108,7 +124,29 @@ export const App = () => {
                 handleLogOut={handleLogOut}
               />
             </PrivateRoute>}
-          />
+          >
+            <Route path="add-product" element={<AddProduct />} />
+            <Route path="make-admin" element={<MakeAdmin />} />
+            <Route path="manage-orders" element={<ManageOrders />} />
+            <Route path="manage-products" element={<ManageProducts />} />
+            <Route path="review" element={<Review />} />
+            <Route path="my-orders" element={<MyOrders />} />
+            <Route path="pay" element={<Pay />} />
+          </Route>
+
+          {/* <Route path="/dashboard/review" element={
+            <PrivateRoute
+              authenticating={authenticating}
+              userEmail={userEmail}
+            >
+              <DashboardReview
+                userRole={userRole}
+                handleLogOut={handleLogOut}
+              />
+            </PrivateRoute>}
+          /> */}
+
+          <Route path="/review" element={<Review />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

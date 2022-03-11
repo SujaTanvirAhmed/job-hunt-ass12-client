@@ -20,6 +20,7 @@ export const AllProducts = () => {
     return (
         <section className="products-sec">
             <h1 className="page-title">All Products</h1>
+            {/* <h1 className="section-title">All Products</h1> */}
             <div className="container">
                 <div className="products">
                     {products.map((product) => <Product

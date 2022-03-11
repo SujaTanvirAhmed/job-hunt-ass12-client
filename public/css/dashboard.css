@@ -56,3 +56,25 @@
 .dashboard-sec {
     padding: 15px 25px;
 }
+
+/* Review */
+.review-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.review-form input, 
+.review-form textarea {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+}
+.review-form button {
+    cursor: pointer;
+    padding: 10px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+}

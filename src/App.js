@@ -129,7 +129,7 @@ export const App = () => {
             <Route path="make-admin" element={<MakeAdmin />} />
             <Route path="manage-orders" element={<ManageOrders />} />
             <Route path="manage-products" element={<ManageProducts />} />
-            <Route path="review" element={<Review />} />
+            <Route path="review" element={<Review userEmail={userEmail} />} />
             <Route path="my-orders" element={<MyOrders />} />
             <Route path="pay" element={<Pay />} />
           </Route>

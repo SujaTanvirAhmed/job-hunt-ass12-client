@@ -1,0 +1,29 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+}
+.App {
+    text-align: center;
+}
+button {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+.container {
+    width: 1250px; 
+    margin: 0 auto;
+}
+.section-title {
+    margin-bottom: 20px;
+    color:#002f69;
+    font-size: 28px;
+}

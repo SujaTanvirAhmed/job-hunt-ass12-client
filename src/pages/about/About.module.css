@@ -1,0 +1,22 @@
+/* About page */
+.about {
+    padding: 50px 0;
+}
+.about-title {
+    margin-top: 30px;
+    margin-bottom: -36px;
+    color: goldenrod;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.about-img {
+    width: 450px;
+    height: auto;
+}
+.about-info {
+    text-align: left;
+    margin-bottom: 15px;
+}

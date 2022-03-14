@@ -1,0 +1,26 @@
+/* Purchase page */
+.purchase-sec {
+    margin-bottom: 50px;
+}
+.purchase-btn {
+    font-size: 15px;
+}
+.purchase-group {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+.purchase-title {
+    margin: 40px;
+    font-size: 30px;
+    color: green;
+}
+.purchase-img {
+    width: 100%;
+    height: auto;
+}
+.calc-group {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}

@@ -9,25 +9,26 @@ import axios from "axios";
 import { firebaseAuthState, logOut, baseUrl } from "./firebase-auth/FirebaseAuth";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Header } from "./components/header/Header";
+import { Footer } from "./components/footer/Footer";
 import { PrivateRoute } from "./components/PrivateRoute";
-import { Review } from "./components/Review";
+import { Review } from "./components/review/Review";
 
-import { AllProducts } from "./pages/AllProducts";
-import { About } from "./pages/About";
-import { Contact } from "./pages/Contact";
-import { Dashboard } from "./pages/Dashboard";
+import { AllProducts } from "./pages/all-products/AllProducts";
+import { About } from "./pages/about/About";
+import { Contact } from "./pages/contact/Contact";
+import { Dashboard } from "./pages/dashboard/Dashboard";
 // import { DashboardReview } from "./pages/DashboardReview";
-import { Home } from "./pages/Home";
-import { NotFound } from "./pages/NotFound";
-import { Purchase } from "./pages/Purchase";
-import { MyOrders } from "./components/MyOrders";
-import { Pay } from "./components/Pay";
-import { ManageOrders } from "./components/ManageOrders";
-import { ManageProducts } from "./components/ManageProducts";
-import { AddProduct } from "./components/AddProduct";
-import { MakeAdmin } from "./components/MakeAdmin";
+import { Home } from "./pages/home/Home";
+import { NotFound } from "./pages/not-found/NotFound";
+import { Purchase } from "./pages/purchase/Purchase";
+import { MyOrders } from "./components/my-orders/MyOrders";
+import { Pay } from "./components/pay/Pay";
+import { ManageOrders } from "./components/manage-orders/ManageOrders";
+import { ManageProducts } from "./components/manage-products/ManageProducts";
+import { AddProduct } from "./components/add-product/AddProduct";
+import { MakeAdmin } from "./components/make-admin/MakeAdmin";
+import "./App.css";
 
 export const App = () => {
 
@@ -134,19 +135,6 @@ export const App = () => {
             <Route path="pay" element={<Pay />} />
           </Route>
 
-          {/* <Route path="/dashboard/review" element={
-            <PrivateRoute
-              authenticating={authenticating}
-              userEmail={userEmail}
-            >
-              <DashboardReview
-                userRole={userRole}
-                handleLogOut={handleLogOut}
-              />
-            </PrivateRoute>}
-          /> */}
-
-          <Route path="/review" element={<Review />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

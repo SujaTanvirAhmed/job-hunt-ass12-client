@@ -1,0 +1,47 @@
+/* Footer */
+footer {
+    background: url("https://i.ibb.co/q9TQTc1/footer-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 0;
+}
+.footer-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.footer-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.footer-list-item {
+    text-align: left;
+    margin-left: -16px;
+    line-height: 15px;
+}
+.footer-link {
+    text-decoration: none;
+}
+.socio-links {
+    width: fit-content;
+    margin-left: auto;
+}
+.socio-title {
+    text-align: right;
+    margin-bottom: 15px;
+}
+.socio-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 25px;
+}
+.socio-icon {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+}

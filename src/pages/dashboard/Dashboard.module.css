@@ -1,0 +1,12 @@
+.dashboard-title {
+    margin: 20px 0;
+    color:rgb(1, 114, 148);
+}
+.dashboard-body {
+    display: flex;
+}
+.dashboard-main {
+    background-color: #f7f3ec;
+    width: 1050px;
+    padding: 25px 15px;
+}

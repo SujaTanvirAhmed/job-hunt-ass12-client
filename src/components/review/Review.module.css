@@ -1,0 +1,26 @@
+.dashboard-sec {
+    padding: 15px 25px;
+}
+.dashboard-sub-head {
+    text-align: right;
+    color: gray;
+}
+.review-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-input {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+}
+.form-btn {
+    cursor: pointer;
+    padding: 10px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+}

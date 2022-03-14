@@ -1,0 +1,33 @@
+  /* Reviews */
+.reviews-sec {
+    padding: 60px 0;
+}
+.reviews-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.user-mail,
+.user-rating {
+  color: rgb(143, 140, 140);
+}
+.user-mail,
+.user-rating,
+.user-msg {
+  text-align: left;
+}
+.user-msg {
+  font-style: italic;
+  color:rgb(1, 114, 148);
+  margin-top: 10px;
+  position: relative;
+}
+.user-msg::before {
+  content: "";
+  width: 80px;
+  height: 2px;
+  background: rgb(189, 186, 186);
+  position: absolute;
+  top: -5px;
+  right: 30px;
+}
